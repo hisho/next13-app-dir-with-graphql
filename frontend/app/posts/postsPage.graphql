@@ -1,0 +1,6 @@
+query PostsPageQuery {
+  posts {
+    id
+    ...PostCard_Post
+  }
+}
