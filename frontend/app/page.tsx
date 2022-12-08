@@ -1,5 +1,7 @@
+import { Todos } from '@src/feature/todo/todos/Todos'
+
 const Page = () => {
-  return <div>page</div>
+  return <Todos />
 }
 
 export default Page
