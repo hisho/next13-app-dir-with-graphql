@@ -1,26 +1,26 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../../prisma/prisma.service';
-import { CreateTodoInput } from './dto/create-todo.input';
-import { UpdateTodoInput } from './dto/update-todo.input';
+import { CreatePostInput } from './dto/create-post.input';
+import { UpdatePostInput } from './dto/update-post.input';
 
 @Injectable()
-export class TodoService {
+export class PostService {
   constructor(private prisma: PrismaService) {}
 
   async findAll() {
-    return this.prisma.todo.findMany();
+    return this.prisma.post.findMany();
   }
 
   async findOne(todoId: string) {
-    return this.prisma.todo.findUniqueOrThrow({
+    return this.prisma.post.findUniqueOrThrow({
       where: {
         id: todoId,
       },
     });
   }
 
-  async create(input: CreateTodoInput) {
-    return this.prisma.todo.create({
+  async create(input: CreatePostInput) {
+    return this.prisma.post.create({
       data: {
         ...input,
         createdAt: new Date(),
@@ -29,8 +29,8 @@ export class TodoService {
     });
   }
 
-  async update(todoId: string, input: UpdateTodoInput) {
-    return this.prisma.todo.update({
+  async update(todoId: string, input: UpdatePostInput) {
+    return this.prisma.post.update({
       where: {
         id: todoId,
       },
@@ -42,7 +42,7 @@ export class TodoService {
   }
 
   async delete(todoId: string) {
-    return this.prisma.todo.delete({
+    return this.prisma.post.delete({
       where: {
         id: todoId,
       },

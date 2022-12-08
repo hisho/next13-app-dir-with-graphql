@@ -3,7 +3,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
 import { PrismaService } from './prisma/prisma.service';
-import { TodoModule } from './module/todo/todo.module';
+import { PostModule } from './module/post/post.module';
 
 @Module({
   imports: [
@@ -13,7 +13,7 @@ import { TodoModule } from './module/todo/todo.module';
       sortSchema: true,
       context: ({ req }) => ({ req }),
     }),
-    TodoModule,
+    PostModule,
   ],
   providers: [PrismaService],
 })

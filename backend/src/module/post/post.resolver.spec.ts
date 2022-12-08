@@ -1,16 +1,16 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { TodoResolver } from './todo.resolver';
-import { TodoService } from './todo.service';
+import { PostResolver } from './todo.resolver';
+import { PostService } from './todo.service';
 
 describe('TodoResolver', () => {
-  let resolver: TodoResolver;
+  let resolver: PostResolver;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [TodoResolver, TodoService],
+      providers: [PostResolver, PostService],
     }).compile();
 
-    resolver = module.get<TodoResolver>(TodoResolver);
+    resolver = module.get<PostResolver>(PostResolver);
   });
 
   it('should be defined', () => {

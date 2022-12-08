@@ -1,6 +1,0 @@
-query todo($todoId: String!) {
-  todo(todoId: $todoId) {
-    id
-    title
-  }
-}

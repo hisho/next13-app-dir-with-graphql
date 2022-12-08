@@ -15,16 +15,16 @@ generator nestgraphql {
   output   = "../src/@generated/prisma-nestjs-graphql"
 }
 
-/// @ObjectType('TodoEntity')
-model Todo {
+/// @ObjectType('PostEntity')
+model Post {
   /// ID
   id String @id @default(uuid())
 
   /// タイトル
   title String
 
-  /// 説明文
-  description String?
+  /// 記事の本文
+  content String
 
   /// 作成日
   createdAt DateTime @default(now()) @map("created_at")
@@ -32,10 +32,10 @@ model Todo {
   /// 更新日
   updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
 
-  /// TODOに紐付いているタグ
+  /// Postに紐付いているタグ
   tags Tag[]
 
-  @@map("todos")
+  @@map("posts")
 }
 
 /// @ObjectType('TagEntity')
@@ -49,8 +49,8 @@ model Tag {
   /// タグ名
   name String @unique @map("name")
 
-  /// タグに紐付いているTodo
-  todos Todo[]
+  /// タグに紐付いているPost
+  posts Post[]
 
   /// 作成日
   createdAt DateTime @default(now()) @map("created_at")

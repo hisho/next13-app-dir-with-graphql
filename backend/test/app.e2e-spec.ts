@@ -47,7 +47,7 @@ describe('AppController (e2e)', () => {
             },
           })
           .expect((res) => {
-            expect(res.body.data.todo).toEqual({
+            expect(res.body.data.post).toEqual({
               createdAt: todo.createdAt,
               description: todo.description,
               id: todo.id,

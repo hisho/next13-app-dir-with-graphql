@@ -8,11 +8,11 @@ const prisma = new PrismaClient();
  */
 
 const doSeed = async () => {
-  const todos = [...Array(3)].map(async (_, i) => {
-    return prisma.todo.create({
+  const posts = [...Array(3)].map(async (_, i) => {
+    return prisma.post.create({
       data: {
-        title: `初めてのTODO${i}`,
-        description: `初めてのTODOを作成する${i}`,
+        title: `初めての投稿${i}`,
+        content: `初めての投稿を作成する${i}`,
       },
     });
   });
@@ -27,7 +27,7 @@ const doSeed = async () => {
       });
     });
 
-  return Promise.all([todos, tags]);
+  return Promise.all([posts, tags]);
 };
 
 const main = async () => {
