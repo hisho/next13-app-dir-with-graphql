@@ -9,3 +9,5 @@ export const fetchTodos = async () => {
     .request(TodosDocument)
     .then((data) => data.todos)
 }
+
+export type FetchTodosResult = Awaited<ReturnType<typeof fetchTodos>>

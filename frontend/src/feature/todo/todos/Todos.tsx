@@ -1,14 +1,15 @@
-import { use } from 'react'
-import { fetchTodos } from '@src/feature/todo/todos/fetchTodos'
+import { ReactNode, use } from 'react'
+import {
+  fetchTodos,
+  FetchTodosResult,
+} from '@src/feature/todo/todos/fetchTodos'
 
-export const Todos = () => {
+type Props = {
+  children: ReactNode | ((todos: FetchTodosResult) => ReactNode)
+}
+
+export const Todos = ({ children }: Props) => {
   const todos = use(fetchTodos())
 
-  return (
-    <div>
-      {todos.map((todo) => (
-        <div key={`Todos_${todo.id}`}>{todo.title}</div>
-      ))}
-    </div>
-  )
+  return <>{typeof children === 'function' ? children(todos) : children}</>
 }
