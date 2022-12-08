@@ -1,11 +1,11 @@
 import { ObjectType, PickType } from '@nestjs/graphql';
-import { Todo as TodoModel } from '../../../@generated/prisma-nestjs-graphql/todo/todo.model';
+import { Post as PostModel } from '../../../@generated/prisma-nestjs-graphql/post/post.model';
 
 @ObjectType()
-export class Post extends PickType(TodoModel, [
+export class Post extends PickType(PostModel, [
   'id',
   'title',
-  'description',
+  'content',
   'createdAt',
   'updatedAt',
 ]) {}
