@@ -27,11 +27,11 @@ type Mutation {
 }
 
 type Post {
+  """記事の本文"""
+  content: String!
+
   """作成日"""
   createdAt: DateTime!
-
-  """説明文"""
-  description: String
 
   """ID"""
   id: ID!
@@ -101,10 +101,6 @@ type TagEntity {
 
   """更新日"""
   updatedAt: DateTime!
-}
-
-type TodoCount {
-  tags: Int!
 }
 
 input UpdatePostInput {
