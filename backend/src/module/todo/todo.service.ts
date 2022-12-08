@@ -12,7 +12,7 @@ export class TodoService {
   }
 
   async findOne(todoId: string) {
-    return this.prisma.todo.findUnique({
+    return this.prisma.todo.findUniqueOrThrow({
       where: {
         id: todoId,
       },
