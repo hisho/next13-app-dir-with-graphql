@@ -1,0 +1,4 @@
+fragment PostCard_Post on Post {
+  title
+  content
+}
