@@ -4,7 +4,6 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
 import { PrismaService } from './prisma/prisma.service';
 import { TodoModule } from './module/todo/todo.module';
-import { SendGridModule } from './module/send-grid/send-grid.module';
 
 @Module({
   imports: [
@@ -15,7 +14,6 @@ import { SendGridModule } from './module/send-grid/send-grid.module';
       context: ({ req }) => ({ req }),
     }),
     TodoModule,
-    SendGridModule,
   ],
   providers: [PrismaService],
 })
