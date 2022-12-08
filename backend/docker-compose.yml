@@ -1,0 +1,20 @@
+services:
+  db:
+    image: mysql:oracle
+    # Dockerの公式MySQLの文字コードをutf8mb4にする
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    container_name: next13_app_dir_with_graphql_container
+    volumes:
+      - ./docker/db/mysql:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      TZ: Asia/Tokyo
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: nest
+      MYSQL_ROOT_HOST: '%'
+
+# データの永続化
+volumes:
+  mysql-data-volume:
+    name: next13_app_dir_with_graphql_volume

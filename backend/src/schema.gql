@@ -1,0 +1,134 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateSendGridInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input CreateTodoInput {
+  """説明"""
+  description: String = null
+
+  """タイトル"""
+  title: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Mutation {
+  createSendGrid(createSendGridInput: CreateSendGridInput!): SendGrid!
+
+  """todo作成"""
+  createTodo(input: CreateTodoInput!): Todo!
+
+  """todo削除"""
+  deleteTodo(todoId: String!): Todo!
+  removeSendGrid(id: Int!): SendGrid!
+  updateSendGrid(updateSendGridInput: UpdateSendGridInput!): SendGrid!
+
+  """todo更新"""
+  updateTodo(input: UpdateTodoInput!, todoId: String!): Todo!
+}
+
+type Query {
+  sendGrid(id: Int!): SendGrid!
+
+  """todo取得"""
+  todo(todoId: String!): Todo!
+
+  """todo一覧取得"""
+  todos: [Todo!]!
+}
+
+type SendGrid {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type TagCount {
+  todos: Int!
+}
+
+type TagEntity {
+  _count: TagCount!
+
+  """作成日"""
+  createdAt: DateTime!
+
+  """説明文"""
+  description: String
+
+  """ID"""
+  id: ID!
+
+  """タグ名"""
+  name: String!
+
+  """タグに紐付いているTodo"""
+  todos: [TodoEntity!]
+
+  """更新日"""
+  updatedAt: DateTime!
+}
+
+type Todo {
+  """作成日"""
+  createdAt: DateTime!
+
+  """説明文"""
+  description: String
+
+  """ID"""
+  id: ID!
+
+  """タイトル"""
+  title: String!
+
+  """更新日"""
+  updatedAt: DateTime!
+}
+
+type TodoCount {
+  tags: Int!
+}
+
+type TodoEntity {
+  _count: TodoCount!
+
+  """作成日"""
+  createdAt: DateTime!
+
+  """説明文"""
+  description: String
+
+  """ID"""
+  id: ID!
+
+  """TODOに紐付いているタグ"""
+  tags: [TagEntity!]
+
+  """タイトル"""
+  title: String!
+
+  """更新日"""
+  updatedAt: DateTime!
+}
+
+input UpdateSendGridInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
+
+input UpdateTodoInput {
+  """説明"""
+  description: String = null
+
+  """タイトル"""
+  title: String!
+}

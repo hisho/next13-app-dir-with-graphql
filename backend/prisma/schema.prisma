@@ -1,0 +1,62 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator nestgraphql {
+  provider = "prisma-nestjs-graphql"
+  output   = "../src/@generated/prisma-nestjs-graphql"
+}
+
+/// @ObjectType('TodoEntity')
+model Todo {
+  /// ID
+  id String @id @default(uuid())
+
+  /// タイトル
+  title String
+
+  /// 説明文
+  description String?
+
+  /// 作成日
+  createdAt DateTime @default(now()) @map("created_at")
+
+  /// 更新日
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+
+  /// TODOに紐付いているタグ
+  tags Tag[]
+
+  @@map("todos")
+}
+
+/// @ObjectType('TagEntity')
+model Tag {
+  /// ID
+  id String @id @default(uuid())
+
+  /// 説明文
+  description String?
+
+  /// タグ名
+  name String @unique @map("name")
+
+  /// タグに紐付いているTodo
+  todos Todo[]
+
+  /// 作成日
+  createdAt DateTime @default(now()) @map("created_at")
+
+  /// 更新日
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+
+  @@map("tags")
+}
