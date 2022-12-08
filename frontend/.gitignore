@@ -42,3 +42,4 @@ next-env.d.ts
 schema.graphql
 src/lib/graphql/graphql.type.ts
 src/feature/**/*.generated.ts
+app/**/*.generated.ts

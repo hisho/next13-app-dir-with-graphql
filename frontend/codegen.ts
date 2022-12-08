@@ -17,7 +17,7 @@ const sharedConfig = {
 const config: CodegenConfig = {
   overwrite: true,
   schema: process.env['NEXT_PUBLIC_GRAPHQL_URL'] ?? '',
-  documents: ['src/**/*.graphql'],
+  documents: ['src/**/*.graphql', 'app/**/*.graphql'],
   ignoreNoDocuments: true,
   generates: {
     'src/lib/graphql/graphql.type.ts': {
