@@ -5,8 +5,10 @@
   "scripts": {
     "dev": "run-p dev:*",
     "dev:next": "next dev",
-    "build": "run-s build:next",
+    "dev:graphql": "yarn build:graphql --watch",
+    "build": "run-s build:graphql build:next",
     "build:next": "next build",
+    "build:graphql": "graphql-codegen --require dotenv/config --config ./codegen.ts",
     "start": "next start",
     "lint": "run-p lint:*",
     "lint:next": "next lint --dir src --ignore-path .prettierignore --max-warnings 0",
@@ -14,14 +16,22 @@
     "lint:typecheck": "tsc --pretty --noEmit",
     "format": "run-s format:eslint format:prettier",
     "format:eslint": "yarn lint:next --fix",
-    "format:prettier": "yarn lint:prettier --write"
+    "format:prettier": "yarn lint:prettier --write",
+    "codegen": "graphql-codegen --config codegen.ts"
   },
   "dependencies": {
+    "graphql": "^16.6.0",
+    "graphql-request": "^5.0.0",
     "next": "13.0.6",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^2.16.1",
+    "@graphql-codegen/near-operation-file-preset": "^2.4.4",
+    "@graphql-codegen/typed-document-node": "^2.3.10",
+    "@graphql-codegen/typescript": "^2.8.5",
+    "@graphql-codegen/typescript-operations": "^2.5.10",
     "@tailwindcss/typography": "^0.5.8",
     "@tsconfig/strictest": "^1.0.2",
     "@types/node": "18.11.11",
