@@ -1,10 +1,10 @@
 import { use } from 'react'
-import { fetchPost, FetchTodoParams } from '@src/feature/post/post/fetchPost'
+import { fetchPost, FetchPostParams } from '@src/feature/post/post/fetchPost'
 
-type Props = FetchTodoParams
+type Props = FetchPostParams
 
-export const Post = ({ todoId }: Props) => {
-  const post = use(fetchPost({ todoId }))
+export const Post = ({ postId }: Props) => {
+  const post = use(fetchPost({ postId }))
 
   return (
     <div>

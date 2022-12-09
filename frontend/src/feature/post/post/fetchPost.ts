@@ -1,16 +1,17 @@
 import { GraphQLClient } from 'graphql-request'
 import { PostDocument } from '@src/feature/post/post/post.generated'
 import type { Post } from '@src/lib/graphql/graphql.type'
+import { NEXT_PUBLIC_GRAPHQL_URL } from '@src/constant/env'
 
-export type FetchTodoParams = {
+export type FetchPostParams = {
   postId: Post['id']
 }
 
-export const fetchPost = async ({ postId }: FetchTodoParams) => {
+export const fetchPost = async ({ postId }: FetchPostParams) => {
   /**
    * TODO: new GraphQLClientを切り出す
    */
-  return await new GraphQLClient('http://localhost:4000/graphql')
+  return await new GraphQLClient(NEXT_PUBLIC_GRAPHQL_URL)
     .request(PostDocument, { postId })
     .then((data) => data.post)
 }
