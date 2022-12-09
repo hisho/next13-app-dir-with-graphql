@@ -8,7 +8,11 @@ export class PostService {
   constructor(private prisma: PrismaService) {}
 
   async findAll() {
-    return this.prisma.post.findMany();
+    return this.prisma.post.findMany({
+      orderBy: {
+        updatedAt: 'desc',
+      },
+    });
   }
 
   async findOne(todoId: string) {
