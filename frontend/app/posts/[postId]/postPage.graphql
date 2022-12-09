@@ -1,0 +1,6 @@
+query PostPageQuery($postId: String!) {
+  post(postId: $postId) {
+    title
+    content
+  }
+}
