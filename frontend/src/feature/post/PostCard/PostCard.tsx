@@ -9,7 +9,7 @@ export const PostCard = ({ post }: Props) => {
 
   return (
     <div className={'card bg-base-200 shadow-xl'}>
-      <figure>
+      <figure style={{ aspectRatio: '400/225' }} className={'bg-gray-500'}>
         <img src={'https://placeimg.com/400/225/arch'} alt={''} />
       </figure>
       <div className={'card-body'}>
