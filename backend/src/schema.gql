@@ -36,6 +36,9 @@ type Post {
   """ID"""
   id: ID!
 
+  """Postに紐付いているタグ"""
+  tags: [TagEntity!]
+
   """タイトル"""
   title: String!
 

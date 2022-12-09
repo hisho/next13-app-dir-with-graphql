@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../../prisma/prisma.service';
 import { CreatePostInput } from './dto/create-post.input';
 import { UpdatePostInput } from './dto/update-post.input';
+import { Tag } from '../../@generated/prisma-nestjs-graphql/tag/tag.model';
 
 @Injectable()
 export class PostService {
@@ -51,5 +52,15 @@ export class PostService {
         id: todoId,
       },
     });
+  }
+
+  async findTags(postId: string): Promise<Tag[]> {
+    return this.prisma.post
+      .findUnique({
+        where: {
+          id: postId,
+        },
+      })
+      .tags();
   }
 }

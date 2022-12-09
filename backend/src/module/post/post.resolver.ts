@@ -1,8 +1,16 @@
-import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
+import {
+  Args,
+  Mutation,
+  Parent,
+  Query,
+  ResolveField,
+  Resolver,
+} from '@nestjs/graphql';
 import { PostService } from './post.service';
 import { Post } from './entities/post.entity';
 import { CreatePostInput } from './dto/create-post.input';
 import { UpdatePostInput } from './dto/update-post.input';
+import { Tag } from 'src/@generated/prisma-nestjs-graphql/tag/tag.model';
 
 @Resolver(() => Post)
 export class PostResolver {
@@ -34,5 +42,10 @@ export class PostResolver {
   @Mutation(() => Post, { description: 'post削除' })
   deletePost(@Args('postId') postId: string) {
     return this.postsService.delete(postId);
+  }
+
+  @ResolveField(() => [Tag])
+  async tags(@Parent() post: Post) {
+    return this.postsService.findTags(post.id);
   }
 }

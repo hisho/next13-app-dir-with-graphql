@@ -8,4 +8,5 @@ export class Post extends PickType(PostModel, [
   'content',
   'createdAt',
   'updatedAt',
+  'tags',
 ]) {}
