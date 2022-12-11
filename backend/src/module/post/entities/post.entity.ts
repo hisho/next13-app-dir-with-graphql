@@ -1,6 +1,6 @@
 import { Field, ObjectType, PickType } from '@nestjs/graphql';
+import { Tag } from '../../tag/entities/tag.entity';
 import { Post as PostModel } from '../../../@generated/prisma-nestjs-graphql/post/post.model';
-import { Tag } from '../../../@generated/prisma-nestjs-graphql/tag/tag.model';
 
 @ObjectType()
 export class Post extends PickType(PostModel, [

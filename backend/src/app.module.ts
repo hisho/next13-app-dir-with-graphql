@@ -4,6 +4,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
 import { PrismaService } from './prisma/prisma.service';
 import { PostModule } from './module/post/post.module';
+import { TagModule } from './module/tag/tag.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { PostModule } from './module/post/post.module';
       context: ({ req }) => ({ req }),
     }),
     PostModule,
+    TagModule,
   ],
   providers: [PrismaService],
 })

@@ -10,6 +10,14 @@ input CreatePostInput {
   title: String!
 }
 
+input CreateTagInput {
+  """説明"""
+  description: String = null
+
+  """タグ名"""
+  name: String!
+}
+
 """
 A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
 """
@@ -18,6 +26,9 @@ scalar DateTime
 type Mutation {
   """post作成"""
   createPost(input: CreatePostInput!): Post!
+
+  """tag作成"""
+  createTag(input: CreateTagInput!): Tag!
 
   """post削除"""
   deletePost(postId: String!): Post!
@@ -37,7 +48,7 @@ type Post {
   id: ID!
 
   """Postに紐付いているタグ"""
-  tags: [TagEntity!]!
+  tags: [Tag!]!
 
   """タイトル"""
   title: String!
@@ -78,6 +89,32 @@ type Query {
 
   """post一覧取得"""
   posts: [Post!]!
+
+  """post取得"""
+  tag(tagId: String!): Tag!
+
+  """tag一覧取得"""
+  tags: [Tag!]!
+}
+
+type Tag {
+  """作成日"""
+  createdAt: DateTime!
+
+  """説明文"""
+  description: String
+
+  """ID"""
+  id: ID!
+
+  """タグ名"""
+  name: String!
+
+  """Tagに紐付いているPost"""
+  posts: [Post!]!
+
+  """更新日"""
+  updatedAt: DateTime!
 }
 
 type TagCount {
