@@ -1,15 +1,11 @@
 import { PostCard } from '@src/feature/post/PostCard/PostCard'
 import Link from 'next/link'
-import { GraphQLClient } from 'graphql-request'
 import { PostsPageQueryDocument } from '@app/posts/postsPage.generated'
 import { use } from 'react'
-import { NEXT_PUBLIC_GRAPHQL_URL } from '@src/constant/env'
+import { createGraphQLClient } from '@src/util/createGraphQLClient/createGraphQLClient'
 
 const fetchPostsPageQuery = async () => {
-  /**
-   * TODO: new GraphQLClientを切り出す
-   */
-  return await new GraphQLClient(NEXT_PUBLIC_GRAPHQL_URL)
+  return await createGraphQLClient()
     .request(PostsPageQueryDocument)
     .then((data) => data)
 }

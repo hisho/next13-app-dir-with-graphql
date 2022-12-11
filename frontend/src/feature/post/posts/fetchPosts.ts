@@ -1,11 +1,8 @@
-import { GraphQLClient } from 'graphql-request'
 import { PostsDocument } from '@src/feature/post/posts/posts.generated'
+import { createGraphQLClient } from '@src/util/createGraphQLClient/createGraphQLClient'
 
 export const fetchPosts = async () => {
-  /**
-   * TODO: new GraphQLClientを切り出す
-   */
-  return await new GraphQLClient('http://localhost:4000/graphql')
+  return await createGraphQLClient()
     .request(PostsDocument)
     .then((data) => data.posts)
 }

@@ -1,12 +1,8 @@
-import { GraphQLClient } from 'graphql-request'
-import { NEXT_PUBLIC_GRAPHQL_URL } from '@src/constant/env'
 import { PostPageQueryDocument } from '@app/posts/[postId]/postPage.generated'
+import { createGraphQLClient } from '@src/util/createGraphQLClient/createGraphQLClient'
 
 export const fetchPostDetailPageQuery = async (postId: string) => {
-  /**
-   * TODO: new GraphQLClientを切り出す
-   */
-  return await new GraphQLClient(NEXT_PUBLIC_GRAPHQL_URL)
+  return await createGraphQLClient()
     .request(PostPageQueryDocument, { postId })
     .then((data) => data)
     .catch(() => {
