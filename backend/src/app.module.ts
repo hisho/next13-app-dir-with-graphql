@@ -5,6 +5,7 @@ import { join } from 'path';
 import { PrismaService } from './prisma/prisma.service';
 import { PostModule } from './module/post/post.module';
 import { TagModule } from './module/tag/tag.module';
+import { PrismaModule } from './prisma/prisma.module';
 
 @Module({
   imports: [
@@ -14,9 +15,10 @@ import { TagModule } from './module/tag/tag.module';
       sortSchema: true,
       context: ({ req }) => ({ req }),
     }),
+    PrismaModule,
     PostModule,
     TagModule,
   ],
-  providers: [PrismaService],
+  providers: [],
 })
 export class AppModule {}
