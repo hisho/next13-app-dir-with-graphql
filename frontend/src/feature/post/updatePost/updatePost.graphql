@@ -1,0 +1,11 @@
+mutation updatePost($postId: String!, $input: UpdatePostInput!) {
+  updatePost(postId: $postId, input: $input) {
+    id
+  }
+}
+
+fragment updatePostForm_Post on Post {
+  id
+  title
+  content
+}
