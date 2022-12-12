@@ -1,5 +1,11 @@
+import { CreatePostForm } from '@src/feature/post/createPost/CreatePostForm'
+
 const page = () => {
-  return <div>create post</div>
+  return (
+    <div>
+      <CreatePostForm />
+    </div>
+  )
 }
 
 export default page
