@@ -28,6 +28,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.40.0",
+    "typesafe-utils": "^1.16.2",
     "zod": "^3.19.1"
   },
   "devDependencies": {
