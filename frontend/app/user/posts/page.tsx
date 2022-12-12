@@ -2,7 +2,7 @@ import { PostCard } from '@src/feature/post/PostCard/PostCard'
 import Link from 'next/link'
 import { use } from 'react'
 import { createGraphQLClient } from '@src/util/createGraphQLClient/createGraphQLClient'
-import { UserPostsPageQueryDocument } from '@app/user/post/userPostsPage.generated'
+import { UserPostsPageQueryDocument } from '@app/user/posts/userPostsPage.generated'
 
 const fetchPostsPageQuery = async () => {
   return await createGraphQLClient()

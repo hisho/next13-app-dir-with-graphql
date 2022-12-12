@@ -2,7 +2,7 @@
 
 import { UpdatePostForm } from '@src/feature/post/updatePost/UpdatePostForm'
 import { createGraphQLClient } from '@src/util/createGraphQLClient/createGraphQLClient'
-import { UserPostEditPageQueryDocument } from '@app/user/post/edit/[postId]/userPostEdit.generated'
+import { UserPostEditPageQueryDocument } from '@app/user/posts/edit/[postId]/userPostEdit.generated'
 import { use } from 'react'
 
 const fetcher = (postId: string) => {
