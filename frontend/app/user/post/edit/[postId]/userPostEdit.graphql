@@ -1,0 +1,5 @@
+query UserPostEditPageQuery($postId: String!) {
+  post(postId: $postId) {
+    ...updatePostForm_Post
+  }
+}
