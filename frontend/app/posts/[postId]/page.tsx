@@ -1,8 +1,8 @@
 import { use } from 'react'
 import { notFound } from 'next/navigation'
-import Link from 'next/link'
 import { formatDate } from '@src/util/date/formatDate'
 import { fetchPostDetailPageQuery } from '@app/posts/[postId]/fetchPostDetailPageQuery'
+import { Link } from '@src/component/Link/Link'
 
 /**
  * TODO paramsのエラーハンドリング
@@ -41,7 +41,7 @@ const Page = ({ params }: { params: { postId: string } }) => {
       </article>
       <div className={'h-4'} />
       <div className={'flex justify-center'}>
-        <Link className={'link link-hover'} href={'/posts'}>
+        <Link className={'link link-hover'} href={(path) => path.posts.$url()}>
           一覧に戻る
         </Link>
       </div>

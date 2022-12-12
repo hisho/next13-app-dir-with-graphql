@@ -1,8 +1,8 @@
 import { PostCard } from '@src/feature/post/PostCard/PostCard'
-import Link from 'next/link'
 import { use } from 'react'
 import { createGraphQLClient } from '@src/util/createGraphQLClient/createGraphQLClient'
 import { UserPostsPageQueryDocument } from '@app/user/posts/userPostsPage.generated'
+import { Link } from '@src/component/Link/Link'
 
 const fetchPostsPageQuery = () => {
   return createGraphQLClient()
@@ -21,7 +21,7 @@ const Page = () => {
         {posts.map((post) => (
           <li key={`Posts_${post.id}`}>
             <Link
-              href={`/user/post/edit/${post.id}`}
+              href={(path) => path.user.posts.edit._postId(post.id).$url()}
               className={'transition-opacity hover:opacity-75'}
             >
               <PostCard post={post} />
