@@ -4,8 +4,8 @@ import { use } from 'react'
 import { createGraphQLClient } from '@src/util/createGraphQLClient/createGraphQLClient'
 import { UserPostsPageQueryDocument } from '@app/user/posts/userPostsPage.generated'
 
-const fetchPostsPageQuery = async () => {
-  return await createGraphQLClient()
+const fetchPostsPageQuery = () => {
+  return createGraphQLClient()
     .request(UserPostsPageQueryDocument)
     .then((data) => data)
 }
