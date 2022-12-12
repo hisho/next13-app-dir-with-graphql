@@ -43,3 +43,6 @@ schema.graphql
 src/lib/graphql/graphql.type.ts
 src/feature/**/*.generated.ts
 app/**/*.generated.ts
+
+# pathpida
+src/lib/pathpida/$path.ts
