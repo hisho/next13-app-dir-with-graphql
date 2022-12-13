@@ -1,7 +1,7 @@
 import { format as _format } from 'date-fns'
 
 //形式が増えたら追記する
-type Format = 'yyyy-MM-dd HH:mm' | 'yyyy月MM日dd HH時mm分'
+type Format = 'yyyy-MM-dd HH:mm' | 'yyyy月MM日dd HH時mm分' | 'yyyy'
 
 /**
  * 日付をformatする関数
