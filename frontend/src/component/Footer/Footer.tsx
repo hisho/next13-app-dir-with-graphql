@@ -1,4 +1,5 @@
 import { Link } from '@src/component/Link/Link'
+import { formatDate } from '@src/util/date/formatDate'
 
 export const Footer = () => {
   return (
@@ -19,7 +20,10 @@ export const Footer = () => {
           </Link>
         </div>
         <div>
-          <p>Copyright © 2022 - All right reserved by Hisho</p>
+          <p>
+            Copyright © {formatDate(new Date(), 'yyyy')} - All right reserved by
+            Hisho
+          </p>
         </div>
       </div>
     </footer>
