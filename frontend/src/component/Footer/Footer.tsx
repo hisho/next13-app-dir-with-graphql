@@ -11,6 +11,12 @@ export const Footer = () => {
           <Link href={(path) => path.posts.$url()} className="link link-hover">
             Posts
           </Link>
+          <Link
+            href={(path) => path.user.posts.$url()}
+            className="link link-hover"
+          >
+            User Posts
+          </Link>
         </div>
         <div>
           <p>Copyright © 2022 - All right reserved by Hisho</p>
