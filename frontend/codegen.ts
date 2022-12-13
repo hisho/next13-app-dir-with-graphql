@@ -31,7 +31,15 @@ const config: CodegenConfig = {
         extension: '.generated.ts',
         baseTypesPath: '~@src/lib/graphql/graphql.type',
       },
-      plugins: ['typescript-operations', 'typed-document-node'],
+      plugins: [
+        'typescript-operations',
+        'typed-document-node',
+        {
+          add: {
+            content: '// @ts-nocheck',
+          },
+        },
+      ],
       hooks: {
         afterOneFileWrite: ['eslint --fix', 'prettier --write'],
       },
