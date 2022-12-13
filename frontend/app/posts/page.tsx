@@ -1,6 +1,5 @@
 import { PostCard } from '@src/feature/post/PostCard/PostCard'
 import { PostsPageQueryDocument } from '@app/posts/postsPage.generated'
-import { use } from 'react'
 import { createGraphQLClient } from '@src/util/createGraphQLClient/createGraphQLClient'
 import { Link } from '@src/component/Link/Link'
 
@@ -10,8 +9,8 @@ const fetchPostsPageQuery = () => {
     .then((data) => data)
 }
 
-const Page = () => {
-  const { posts } = use(fetchPostsPageQuery())
+const Page = async () => {
+  const { posts } = await fetchPostsPageQuery()
 
   return (
     <div className={'py-10'}>

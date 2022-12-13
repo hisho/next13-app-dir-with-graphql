@@ -1,4 +1,3 @@
-import { use } from 'react'
 import { notFound } from 'next/navigation'
 import { formatDate } from '@src/util/date/formatDate'
 import { fetchPostDetailPageQuery } from '@app/posts/[postId]/fetchPostDetailPageQuery'
@@ -7,8 +6,8 @@ import { Link } from '@src/component/Link/Link'
 /**
  * TODO paramsのエラーハンドリング
  */
-const Page = ({ params }: { params: { postId: string } }) => {
-  const data = use(fetchPostDetailPageQuery(params.postId))
+const Page = async ({ params }: { params: { postId: string } }) => {
+  const data = await fetchPostDetailPageQuery(params.postId)
 
   if (data === undefined) {
     notFound()

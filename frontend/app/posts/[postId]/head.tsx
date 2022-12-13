@@ -1,8 +1,7 @@
-import { use } from 'react'
 import { fetchPostDetailPageQuery } from '@app/posts/[postId]/fetchPostDetailPageQuery'
 
-const Head = ({ params }: { params: { postId: string } }) => {
-  const data = use(fetchPostDetailPageQuery(params.postId))
+const Head = async ({ params }: { params: { postId: string } }) => {
+  const data = await fetchPostDetailPageQuery(params.postId)
 
   return (
     <>
