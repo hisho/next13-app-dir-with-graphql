@@ -10,7 +10,7 @@
     "build": "run-s build:path build:graphql build:next",
     "build:next": "next build",
     "build:path": "pathpida --ignorePath .gitignore --output src/lib/pathpida",
-    "build:graphql": "graphql-codegen --require dotenv/config --config ./codegen.ts",
+    "build:graphql": "graphql-codegen --config ./codegen.ts",
     "start": "next start",
     "lint": "run-p lint:*",
     "lint:next": "next lint --dir src --ignore-path .prettierignore --max-warnings 0",
