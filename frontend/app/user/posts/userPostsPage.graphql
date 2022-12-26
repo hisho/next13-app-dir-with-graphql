@@ -1,6 +1,0 @@
-query UserPostsPageQuery {
-  posts {
-    id
-    ...PostCard_Post
-  }
-}
