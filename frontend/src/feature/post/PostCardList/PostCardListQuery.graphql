@@ -1,4 +1,4 @@
-query PostsPageQuery {
+query PostCardListQuery {
   posts {
     id
     ...PostCard_Post
